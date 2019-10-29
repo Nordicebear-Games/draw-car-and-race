@@ -4,21 +4,40 @@ using UnityEngine;
 
 public class DrawCar : MonoBehaviour
 {
+    [Header("Car")]
+    [Range(0f, 20f)]
+    public float carSpeed = 10f;
+
+    [Header("Prefabs")]
     public GameObject linePrefab;
     public GameObject wheelPrefab;
+
+    [Header("Line")]
     public GameObject currentLine;
     public LineRenderer lineRenderer;
     public EdgeCollider2D edgeCollider;
     public List<Vector2> fingerPositions;
 
+    private Rigidbody2D rb2D;
     private Vector3 wheelPos;
+    private bool moveControl = false;
 
-    void Update()
+    private void Start()
     {
-        userUnput();
+        rb2D = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    private void userUnput()
+    private void Update()
+    {
+        userInput();
+    }
+
+    private void FixedUpdate()
+    {
+        moveCar();
+    }
+
+    private void userInput()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -38,6 +57,8 @@ public class DrawCar : MonoBehaviour
         {
             createWheel();
             (currentLine as GameObject).transform.parent = gameObject.transform;
+            rb2D.bodyType = RigidbodyType2D.Dynamic;
+            moveControl = true;
         }
     }
 
@@ -77,4 +98,17 @@ public class DrawCar : MonoBehaviour
             (wheel as GameObject).transform.parent = gameObject.transform;
         }
     }
+
+    private void moveCar()
+    {
+        if (moveControl)
+        {
+            rb2D.AddForce(transform.right * carSpeed);
+        }
+    }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    Debug.Log(collision.transform.tag);
+    //}
 }

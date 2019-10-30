@@ -59,6 +59,7 @@ public class DrawCar : MonoBehaviour
             (currentLine as GameObject).transform.parent = gameObject.transform;
             rb2D.bodyType = RigidbodyType2D.Dynamic;
             moveControl = true;
+            gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0f);
         }
     }
 

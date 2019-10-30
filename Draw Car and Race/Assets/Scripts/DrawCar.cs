@@ -57,11 +57,15 @@ public class DrawCar : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            createWheel();
-            (currentLine as GameObject).transform.parent = gameObject.transform;
-            rb2D.bodyType = RigidbodyType2D.Dynamic;
-            moveControl = true;
-            gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0f);
+            if (transform.childCount > 0) //if there is already a car
+            {
+                foreach (Transform child in transform)
+                {
+                    wheels.Clear();
+                    Destroy(child.gameObject);
+                }
+            }
+            createCar();
         }
     }
 
@@ -86,12 +90,20 @@ public class DrawCar : MonoBehaviour
         edgeCollider.points = fingerPositions.ToArray();
     }
 
+    private void createCar()
+    {
+        createWheel();
+        (currentLine as GameObject).transform.parent = gameObject.transform;
+        moveControl = true;
+    }
+
     private void createWheel()
     {
         for (int i = 0; i < 2; i++)
         {
             if (i == 0){
                 wheelPos = new Vector3(fingerPositions[0].x, fingerPositions[0].y);
+                //wheelPos = new Vector3(lineRenderer.GetPosition(0).x, lineRenderer.GetPosition(0).y);
             }
             else if (i == 1)
             {
@@ -107,6 +119,7 @@ public class DrawCar : MonoBehaviour
     {
         if (moveControl)
         {
+            rb2D.bodyType = RigidbodyType2D.Dynamic;
             rb2D.AddForce(transform.right * carSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
             rotateWheel();
         }

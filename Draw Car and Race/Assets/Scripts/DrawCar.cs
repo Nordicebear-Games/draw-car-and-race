@@ -19,6 +19,8 @@ public class DrawCar : MonoBehaviour
     public List<Vector2> fingerPositions;
 
     private Rigidbody2D rb2D;
+    private List<GameObject> wheels = new List<GameObject>();
+    private GameObject wheel;
     private Vector3 wheelPos;
     private bool moveControl = false;
 
@@ -95,8 +97,9 @@ public class DrawCar : MonoBehaviour
             {
                 wheelPos = new Vector3(fingerPositions[fingerPositions.Count - 1].x, fingerPositions[fingerPositions.Count - 1].y);
             }
-            GameObject wheel = Instantiate(wheelPrefab, wheelPos, Quaternion.identity);
+            wheel = Instantiate(wheelPrefab, wheelPos, Quaternion.identity);
             (wheel as GameObject).transform.parent = gameObject.transform;
+            wheels.Add(wheel as GameObject);
         }
     }
 
@@ -105,11 +108,15 @@ public class DrawCar : MonoBehaviour
         if (moveControl)
         {
             rb2D.AddForce(transform.right * carSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
+            rotateWheel();
         }
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    Debug.Log(collision.transform.tag);
-    //}
+    private void rotateWheel()
+    {
+        for (int i = 0; i < wheels.Count; i++)
+        {
+            wheels[i].transform.Rotate(new Vector3(0, 0, Random.Range(0f, 360f)) * Time.fixedDeltaTime * 3f);
+        }
+    }
 }

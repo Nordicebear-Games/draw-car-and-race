@@ -5,8 +5,8 @@ using UnityEngine;
 public class DrawCar : MonoBehaviour
 {
     [Header("Car")]
-    [Range(0f, 20f)]
-    public float carSpeed = 10f;
+    [Range(0f, 100f)]
+    public float carSpeed = 20f;
 
     [Header("Prefabs")]
     public GameObject linePrefab;
@@ -104,7 +104,7 @@ public class DrawCar : MonoBehaviour
     {
         if (moveControl)
         {
-            rb2D.AddForce(transform.right * carSpeed);
+            rb2D.AddForce(transform.right * carSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
         }
     }
 

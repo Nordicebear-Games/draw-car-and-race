@@ -132,4 +132,13 @@ public class DrawCar : MonoBehaviour
             wheels[i].transform.Rotate(new Vector3(0, 0, Random.Range(0f, 360f)) * Time.fixedDeltaTime * 3f);
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "flagTag")
+        {
+            moveControl = false;
+            carSpeed = 0f;
+        }
+    }
 }

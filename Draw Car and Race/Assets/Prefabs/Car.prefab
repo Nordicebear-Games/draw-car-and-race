@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00da83881af40dd4aacf04f14766ed84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carSpeed: 20
+  carSpeed: 30.8
   linePrefab: {fileID: 2292577709448205174, guid: 916450768b9fd4b4ba4fb48965f3f96a,
     type: 3}
   wheelPrefab: {fileID: 3268782976521903455, guid: 2a110bf074b10114ab5d5494b4e741ea,

@@ -46,14 +46,14 @@ public class UIControl : MonoBehaviour
 
     public void levelCompleted()
     {
-        if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings)
+        if (SceneManager.GetActiveScene().buildIndex + 1 < 5)
         {
             levelCompletedText.GetComponent<Text>().text = SceneManager.GetActiveScene().name + " Completed";
             levelCompletedText.SetActive(true);
             restartButton.SetActive(false);
             nextButton.SetActive(true);
         }
-        else if(SceneManager.GetActiveScene().buildIndex + 1 >= SceneManager.sceneCountInBuildSettings)
+        else if(SceneManager.GetActiveScene().buildIndex + 1 >= 5)
         {
             levelCompletedText.GetComponent<Text>().text ="Game Completed. Thank you for playing.";
             levelCompletedText.SetActive(true);

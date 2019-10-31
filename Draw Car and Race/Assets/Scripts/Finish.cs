@@ -6,7 +6,7 @@ public class Finish : MonoBehaviour
 {
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "carTag")
+        if (collision.transform.tag == "carTag")
         {
             UIControl.UIManager.levelCompleted();
             Debug.Log("Level Completed trigger");

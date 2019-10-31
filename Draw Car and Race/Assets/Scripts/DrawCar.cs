@@ -138,7 +138,7 @@ public class DrawCar : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "flagTag")
+        if (collision.transform.tag == "flagTag")
         {
             moveControl = false;
             carSpeed = 0f;

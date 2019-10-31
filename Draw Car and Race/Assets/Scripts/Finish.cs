@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Finish : MonoBehaviour
 {
@@ -9,7 +7,6 @@ public class Finish : MonoBehaviour
         if (collision.transform.tag == "carTag")
         {
             UIControl.UIManager.levelCompleted();
-            Debug.Log("Level Completed trigger");
         }
     }
 }

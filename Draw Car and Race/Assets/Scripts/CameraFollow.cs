@@ -2,26 +2,20 @@
 
 public class CameraFollow : MonoBehaviour
 {
-    public GameObject player;        //Public variable to store a reference to the player game object
+    public GameObject car; 
 
+    private Vector3 offset;           
 
-    private Vector3 offset;            //Private variable to store the offset distance between the player and camera
-
-    // Use this for initialization
     private void Start()
     {
         //Calculate and store the offset value by getting the distance between the player's position and camera's position.
-        offset = transform.position - player.transform.position;
+        offset = transform.position - car.transform.position;
     }
 
-    // LateUpdate is called after Update each frame
     private void LateUpdate()
     {
-        // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
-        //transform.position = player.transform.position + offset;
-
-        transform.position = new Vector3(player.transform.position.x + offset.x,
-                                        -3f,   
-                                        player.transform.position.z + offset.z);
+        transform.position = new Vector3(car.transform.position.x + offset.x,
+                                        -3f,
+                                        car.transform.position.z + offset.z);
     }
 }

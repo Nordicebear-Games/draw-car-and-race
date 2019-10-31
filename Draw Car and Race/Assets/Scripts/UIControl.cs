@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class UIControl : MonoBehaviour
 {
+    [Header("UI Elements")]
     public GameObject currentLevelText;
     public GameObject DrawCarAndRace;
     public GameObject levelCompletedText;
@@ -26,11 +25,8 @@ public class UIControl : MonoBehaviour
         }
     }
 
-    public void Start()
+    private void Start()
     {
-        Debug.Log(SceneManager.sceneCountInBuildSettings);
-        Debug.Log(SceneManager.GetActiveScene().buildIndex);
-
         currentLevelText.GetComponent<Text>().text = SceneManager.GetActiveScene().name;
     }
 

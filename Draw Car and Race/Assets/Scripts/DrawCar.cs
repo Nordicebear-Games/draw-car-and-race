@@ -66,6 +66,7 @@ public class DrawCar : MonoBehaviour
                 }
             }
             createCar();
+            UIControl.UIManager.currentLevelText.SetActive(false);
         }
     }
 

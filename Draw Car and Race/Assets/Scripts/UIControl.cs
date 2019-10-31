@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class UIControl : MonoBehaviour
 {
     public GameObject currentLevelText;
+    public GameObject DrawCarAndRace;
     public GameObject levelCompletedText;
     public GameObject restartButton;
     public GameObject nextButton;
@@ -27,6 +28,9 @@ public class UIControl : MonoBehaviour
 
     public void Start()
     {
+        Debug.Log(SceneManager.sceneCountInBuildSettings);
+        Debug.Log(SceneManager.GetActiveScene().buildIndex);
+
         currentLevelText.GetComponent<Text>().text = SceneManager.GetActiveScene().name;
     }
 
@@ -53,6 +57,7 @@ public class UIControl : MonoBehaviour
         {
             levelCompletedText.GetComponent<Text>().text ="Game Completed. Thank you for playing.";
             levelCompletedText.SetActive(true);
+            restartButton.SetActive(false);
         }
     }
 }

@@ -10,6 +10,7 @@ public class UIControl : MonoBehaviour
     public GameObject levelCompletedText;
     public GameObject restartButton;
     public GameObject nextButton;
+    public GameObject levelsButton;
 
     public static UIControl UIManager { get; private set; }
 
@@ -40,6 +41,11 @@ public class UIControl : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void lvlScreen()
+    {
+        SceneManager.LoadScene("LevelScreen");
+    }
+
     public void levelCompleted()
     {
         if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings)
@@ -48,6 +54,7 @@ public class UIControl : MonoBehaviour
             levelCompletedText.SetActive(true);
             restartButton.SetActive(false);
             nextButton.SetActive(true);
+            GameControl.gameManager.reachedToNextLvl(SceneManager.GetActiveScene().buildIndex);
         }
         else if(SceneManager.GetActiveScene().buildIndex + 1 >= SceneManager.sceneCountInBuildSettings)
         {

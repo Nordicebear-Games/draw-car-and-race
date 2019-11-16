@@ -614,6 +614,11 @@ PrefabInstance:
       propertyPath: textBox
       value: 
       objectReference: {fileID: 611866771}
+    - target: {fileID: 1221720615462261142, guid: 019e47ab41cf68344b8c5c2fb66cf88b,
+        type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 611866771}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 019e47ab41cf68344b8c5c2fb66cf88b, type: 3}
 --- !u!1001 &4044886646783386166
@@ -738,9 +743,5 @@ PrefabInstance:
       propertyPath: stopWatch
       value: 
       objectReference: {fileID: 1300286801}
-    - target: {fileID: 611866770, guid: f59ef7b80d311684daba96e66b2380d9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f59ef7b80d311684daba96e66b2380d9, type: 3}

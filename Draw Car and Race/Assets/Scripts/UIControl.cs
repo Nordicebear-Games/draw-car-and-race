@@ -14,6 +14,7 @@ public class UIControl : MonoBehaviour
 
     [Header("StopWatch")]
     public StopWatch stopWatch;
+    public Text bestTimeText;
 
     public bool lastLvlControl = false;
 
@@ -33,7 +34,18 @@ public class UIControl : MonoBehaviour
 
     private void Start()
     {
+        bestTime();
         currentLevelText.GetComponent<Text>().text = SceneManager.GetActiveScene().name;
+    }
+
+    private void bestTime()
+    {
+        GameData gameData = SaveSystem.loadGameData();
+        if (gameData != null)
+        {
+            int lvlIndex = SceneManager.GetActiveScene().buildIndex - 2;
+            bestTimeText.text = "Best: " + gameData.timeList[lvlIndex].ToString("F2");
+        }
     }
 
     public void restartGame()
@@ -72,6 +84,7 @@ public class UIControl : MonoBehaviour
         }
 
         GameControl.gameManager.reachedToNextLvl(SceneManager.GetActiveScene().buildIndex, stopWatch.timeStart);
+        bestTime();
         stopWatch.stopWatchState("stop");
     }
 }

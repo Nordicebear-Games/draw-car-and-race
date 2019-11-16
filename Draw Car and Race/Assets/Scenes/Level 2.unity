@@ -522,6 +522,11 @@ PrefabInstance:
       propertyPath: textBox
       value: 
       objectReference: {fileID: 1531118200}
+    - target: {fileID: 1221720615462261142, guid: 019e47ab41cf68344b8c5c2fb66cf88b,
+        type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 1531118200}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 019e47ab41cf68344b8c5c2fb66cf88b, type: 3}
 --- !u!114 &1771871489 stripped

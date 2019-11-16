@@ -41,37 +41,36 @@ public class DrawCar : MonoBehaviour
 
     private void userInput()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (UIControl.UIManager.drawCarControl)
         {
-            CreateLine();
-        }
-
-        if (Input.GetMouseButton(0))
-        {
-            Vector2 tempFingerPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            if (Vector2.Distance(tempFingerPos, fingerPositions[fingerPositions.Count - 1]) > .1f)
+            if (Input.GetMouseButtonDown(0))
             {
-                UpdateLine(tempFingerPos);
+                CreateLine();
             }
-        }
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            if (transform.childCount > 0) //if there is already a car
+            if (Input.GetMouseButton(0))
             {
-                foreach (Transform child in transform)
+                Vector2 tempFingerPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                if (Vector2.Distance(tempFingerPos, fingerPositions[fingerPositions.Count - 1]) > .1f)
                 {
-                    wheels.Clear();
-                    Destroy(child.gameObject);
+                    UpdateLine(tempFingerPos);
                 }
             }
-            createCar();
 
-            UIControl.UIManager.currentLevelText.SetActive(false);
-            UIControl.UIManager.DrawCarAndRace.SetActive(false);
-            UIControl.UIManager.levelsButton.SetActive(false);
-            UIControl.UIManager.restartButton.SetActive(true);
-            UIControl.UIManager.stopWatch.stopWatchState("start");
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (transform.childCount > 0) //if there is already a car
+                {
+                    foreach (Transform child in transform)
+                    {
+                        wheels.Clear();
+                        Destroy(child.gameObject);
+                    }
+                }
+                createCar();
+
+                UIControl.UIManager.raceStarted();
+            }
         }
     }
 

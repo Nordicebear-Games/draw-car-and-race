@@ -26,7 +26,7 @@ public class LevelControl : MonoBehaviour
             for (int i = 0; i < gameData.currentLvl; i++)
             {
                 lvlButtons.transform.GetChild(i).gameObject.GetComponent<Button>().interactable = true;
-                lvlButtons.transform.GetChild(i).GetChild(1).GetComponent<Text>().text = gameData.timeList[i].ToString("F2");
+                lvlButtons.transform.GetChild(i).GetChild(1).GetComponent<Text>().text = "Best Time: " + gameData.timeList[i].ToString("F2");
                 lvlButtons.transform.GetChild(i).GetChild(0).gameObject.SetActive(true); //level text
                 lvlButtons.transform.GetChild(i).GetChild(1).gameObject.SetActive(true); //best time text
                 lvlButtons.transform.GetChild(i).GetChild(2).gameObject.SetActive(false); //lock image

@@ -17,6 +17,7 @@ public class UIControl : MonoBehaviour
     public Text bestTimeText;
 
     public bool lastLvlControl = false;
+    public bool drawCarControl = true;
 
     public static UIControl UIManager { get; private set; }
 
@@ -34,8 +35,18 @@ public class UIControl : MonoBehaviour
 
     private void Start()
     {
+        drawCarControl = true;
         bestTime();
         currentLevelText.GetComponent<Text>().text = SceneManager.GetActiveScene().name;
+    }
+
+    public void raceStarted()
+    {
+        currentLevelText.SetActive(false);
+        DrawCarAndRace.SetActive(false);
+        levelsButton.SetActive(false);
+        restartButton.SetActive(true);
+        stopWatch.stopWatchState("start");
     }
 
     private void bestTime()
@@ -83,6 +94,7 @@ public class UIControl : MonoBehaviour
             levelsButton.SetActive(true);
         }
 
+        drawCarControl = false;
         GameControl.gameManager.reachedToNextLvl(SceneManager.GetActiveScene().buildIndex, stopWatch.timeStart);
         bestTime();
         stopWatch.stopWatchState("stop");

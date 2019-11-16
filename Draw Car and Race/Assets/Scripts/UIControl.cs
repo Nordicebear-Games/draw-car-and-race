@@ -15,6 +15,8 @@ public class UIControl : MonoBehaviour
     [Header("StopWatch")]
     public StopWatch stopWatch;
 
+    public bool lastLvlControl = false;
+
     public static UIControl UIManager { get; private set; }
 
     private void Awake()
@@ -54,20 +56,22 @@ public class UIControl : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings)
         {
+            lastLvlControl = false;
             levelCompletedText.GetComponent<Text>().text = SceneManager.GetActiveScene().name + " Completed";
             levelCompletedText.SetActive(true);
             restartButton.SetActive(false);
             nextButton.SetActive(true);
-            GameControl.gameManager.reachedToNextLvl(SceneManager.GetActiveScene().buildIndex);
         }
         else if(SceneManager.GetActiveScene().buildIndex + 1 >= SceneManager.sceneCountInBuildSettings)
         {
-            levelCompletedText.GetComponent<Text>().text ="Game Completed. Thank you for playing.";
+            lastLvlControl = true;
+            levelCompletedText.GetComponent<Text>().text ="Game completed for now. Thank you for playing.";
             levelCompletedText.SetActive(true);
             restartButton.SetActive(false);
             levelsButton.SetActive(true);
         }
 
+        GameControl.gameManager.reachedToNextLvl(SceneManager.GetActiveScene().buildIndex, stopWatch.timeStart);
         stopWatch.stopWatchState("stop");
     }
 }

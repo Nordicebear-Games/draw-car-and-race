@@ -7,7 +7,7 @@ public class StopWatch : MonoBehaviour
 {
     public Text textBox;
 
-    private float timeStart = 0.00f;
+    public float timeStart = 0.00f;
     private bool timerActive = false;
 
     private void Start()

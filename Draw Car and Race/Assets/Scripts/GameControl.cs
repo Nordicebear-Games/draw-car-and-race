@@ -29,8 +29,11 @@ public class GameControl : MonoBehaviour
 
     public void reachedToNextLvl(int lvl)
     {
-        currentLvl = lvl;
-        Debug.Log(currentLvl);
+        if (lvl > currentLvl)
+        {
+            currentLvl = lvl;
+            Debug.Log(currentLvl);
+        }
         saveGameData();
     }
 

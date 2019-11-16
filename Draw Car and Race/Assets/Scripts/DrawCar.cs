@@ -71,6 +71,7 @@ public class DrawCar : MonoBehaviour
             UIControl.UIManager.DrawCarAndRace.SetActive(false);
             UIControl.UIManager.levelsButton.SetActive(false);
             UIControl.UIManager.restartButton.SetActive(true);
+            UIControl.UIManager.stopWatch.stopWatchState("start");
         }
     }
 

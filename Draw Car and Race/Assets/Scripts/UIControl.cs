@@ -12,6 +12,9 @@ public class UIControl : MonoBehaviour
     public GameObject nextButton;
     public GameObject levelsButton;
 
+    [Header("StopWatch")]
+    public StopWatch stopWatch;
+
     public static UIControl UIManager { get; private set; }
 
     private void Awake()
@@ -34,6 +37,7 @@ public class UIControl : MonoBehaviour
     public void restartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        stopWatch.stopWatchState("reset");
     }
 
     public void nextLevel()
@@ -61,6 +65,9 @@ public class UIControl : MonoBehaviour
             levelCompletedText.GetComponent<Text>().text ="Game Completed. Thank you for playing.";
             levelCompletedText.SetActive(true);
             restartButton.SetActive(false);
+            levelsButton.SetActive(true);
         }
+
+        stopWatch.stopWatchState("stop");
     }
 }

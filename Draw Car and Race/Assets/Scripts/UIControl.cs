@@ -18,7 +18,7 @@ public class UIControl : MonoBehaviour
 
     private int lvlIndex;
 
-    public bool lastLvlControl = false;
+    //public bool lastLvlControl = false;
     public bool drawCarControl = true;
 
     public static UIControl UIManager { get; private set; }
@@ -53,7 +53,7 @@ public class UIControl : MonoBehaviour
 
     private void bestTime()
     {
-        bestTimeText.text = "Best: " + GameControl.gameManager.timeList[findLvlIndex()].ToString("F2");
+        bestTimeText.text = "Best: " + GameControl.gameManager.timeList[findLvlIndex() - 1].ToString("F2");
     }
 
     private int findLvlIndex() //find level index according to level name
@@ -66,7 +66,7 @@ public class UIControl : MonoBehaviour
                 lvlIndex = i;
             }
         }
-        return lvlIndex - 1;
+        return lvlIndex;
     }
 
     public void restartGame()
@@ -89,7 +89,7 @@ public class UIControl : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings)
         {
-            lastLvlControl = false;
+            //lastLvlControl = false;
             levelCompletedText.GetComponent<Text>().text = SceneManager.GetActiveScene().name + " Completed";
             levelCompletedText.SetActive(true);
             restartButton.SetActive(false);
@@ -97,7 +97,7 @@ public class UIControl : MonoBehaviour
         }
         else if(SceneManager.GetActiveScene().buildIndex + 1 >= SceneManager.sceneCountInBuildSettings)
         {
-            lastLvlControl = true;
+            //lastLvlControl = true;
             levelCompletedText.GetComponent<Text>().text ="Game completed for now. Thank you for playing.";
             levelCompletedText.SetActive(true);
             restartButton.SetActive(false);
@@ -105,7 +105,7 @@ public class UIControl : MonoBehaviour
         }
 
         drawCarControl = false;
-        GameControl.gameManager.reachedToNextLvl(SceneManager.GetActiveScene().buildIndex, stopWatch.timeStart);
+        GameControl.gameManager.reachedToNextLvl(findLvlIndex(), stopWatch.timeStart);
         bestTime();
         stopWatch.stopWatchState("stop");
     }

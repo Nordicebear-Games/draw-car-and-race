@@ -22,9 +22,9 @@ public class LevelControl : MonoBehaviour
         if (gameData != null)
         {
             //Debug.Log(gameData.currentLvl);
-            for (int i = 0; i < lvlButtons.transform.childCount; i++)
+            for (int i = 0; i < GameControl.gameManager.numberOfLevel; i++)
             {
-                if (i <= gameData.currentLvl)
+                if (gameData.currentLvl > i)
                 {
                     Text bestTimeText = lvlButtons.transform.GetChild(i).GetChild(1).GetComponent<Text>();
                     bestTimeText.text = "Best Time: " + GameControl.gameManager.timeList[i].ToString("F2");

@@ -27,19 +27,29 @@ public class GameControl : MonoBehaviour
     {
         //SaveSystem.deleteDatas();
         loadGameData();
-        SceneManager.LoadScene("Level " + currentLvl);
+
+ 
+        if (currentLvl <= numberOfLevel)
+        {
+            SceneManager.LoadScene("Level " + currentLvl);
+        }
+        else
+        {
+            SceneManager.LoadScene("Level " + (currentLvl - 1));
+        }
+        
     }
 
     public void reachedToNextLvl(int lvl, float newTime)
     {
-        if (lvl > currentLvl && !UIControl.UIManager.lastLvlControl)
+        if (lvl == currentLvl)
         {
-            currentLvl = lvl;
+            currentLvl = lvl + 1;
         }
 
-        if (newTime < timeList[lvl - 2] || timeList[lvl - 2] == 0f)
+        if (newTime < timeList[lvl - 1] || timeList[lvl - 1] == 0f)
         {
-            timeList[lvl - 2] = Mathf.Round(newTime * 100f) / 100f;
+            timeList[lvl - 1] = Mathf.Round(newTime * 100f) / 100f;
         }
 
         saveGameData();

@@ -16,6 +16,8 @@ public class UIControl : MonoBehaviour
     public StopWatch stopWatch;
     public Text bestTimeText;
 
+    private int lvlIndex;
+
     public bool lastLvlControl = false;
     public bool drawCarControl = true;
 
@@ -54,9 +56,28 @@ public class UIControl : MonoBehaviour
         GameData gameData = SaveSystem.loadGameData();
         if (gameData != null)
         {
-            int lvlIndex = SceneManager.GetActiveScene().buildIndex - 2;
-            bestTimeText.text = "Best: " + gameData.timeList[lvlIndex].ToString("F2");
+            try
+            {
+                bestTimeText.text = "Best: " + gameData.timeList[findLvlIndex()].ToString("F2");
+            }
+            catch (System.ArgumentOutOfRangeException)
+            {
+                bestTimeText.text = "Best: " + 0f.ToString("F2");
+            }
         }
+    }
+
+    private int findLvlIndex() //find level index according to level name
+    {
+        string lvlName = SceneManager.GetActiveScene().name;
+        for (int i = 1; i <= GameControl.gameManager.numberOfLevel; i++)
+        {
+            if (lvlName == "Level " + i.ToString())
+            {
+                lvlIndex = i;
+            }
+        }
+        return lvlIndex - 1;
     }
 
     public void restartGame()

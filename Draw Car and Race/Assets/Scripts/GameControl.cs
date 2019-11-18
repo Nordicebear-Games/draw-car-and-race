@@ -9,7 +9,7 @@ public class GameControl : MonoBehaviour
     public List<float> timeList = new List<float>();
     public static GameControl gameManager { get; private set; }
 
-    private int numberOfLevel = 5;
+    public int numberOfLevel = 6;
 
     private void Awake()
     {

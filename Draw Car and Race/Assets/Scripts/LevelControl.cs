@@ -11,10 +11,9 @@ public class LevelControl : MonoBehaviour
         lvlUnlocked();
     }
 
-    public void choosenLevel(int lvlIndex)
+    public void choosenLevel(string lvl)
     {
-        lvlIndex++;
-        SceneManager.LoadScene("Level " + lvlIndex.ToString());
+        SceneManager.LoadScene(lvl);
     }
 
     private void lvlUnlocked()
@@ -23,13 +22,24 @@ public class LevelControl : MonoBehaviour
         if (gameData != null)
         {
             //Debug.Log(gameData.currentLvl);
-            for (int i = 0; i < gameData.currentLvl; i++)
+            for (int i = 0; i < lvlButtons.transform.childCount; i++)
             {
                 lvlButtons.transform.GetChild(i).gameObject.GetComponent<Button>().interactable = true;
-                lvlButtons.transform.GetChild(i).GetChild(1).GetComponent<Text>().text = "Best Time: " + gameData.timeList[i].ToString("F2");
-                lvlButtons.transform.GetChild(i).GetChild(0).gameObject.SetActive(true); //level text
-                lvlButtons.transform.GetChild(i).GetChild(1).gameObject.SetActive(true); //best time text
-                lvlButtons.transform.GetChild(i).GetChild(2).gameObject.SetActive(false); //lock image
+                if (i <= gameData.currentLvl)
+                {
+                    try
+                    {
+                        lvlButtons.transform.GetChild(i).GetChild(1).GetComponent<Text>().text = "Best Time: " + gameData.timeList[i].ToString("F2");
+                    }
+                    catch (System.ArgumentOutOfRangeException)
+                    {
+                        lvlButtons.transform.GetChild(i).GetChild(1).GetComponent<Text>().text = "Best Time: " + 0f.ToString("F2");
+                    }
+                    //unlock level
+                    lvlButtons.transform.GetChild(i).GetChild(0).gameObject.SetActive(true); //level text
+                    lvlButtons.transform.GetChild(i).GetChild(1).gameObject.SetActive(true); //best time text
+                    lvlButtons.transform.GetChild(i).GetChild(2).gameObject.SetActive(false); //lock image
+                }
             }
         }
     }

@@ -9,7 +9,7 @@ public class GameControl : MonoBehaviour
     public List<float> timeList = new List<float>();
     public static GameControl gameManager { get; private set; }
 
-    public int numberOfLevel = 6;
+    public int numberOfLevel;
 
     private void Awake()
     {
@@ -58,7 +58,15 @@ public class GameControl : MonoBehaviour
         if (gameData != null)
         {
             currentLvl = gameData.currentLvl;
-            timeList = gameData.timeList;
+
+            for (int i = 0; i < numberOfLevel; i++)
+            {
+                timeList.Add(0f);
+                if (gameData.timeList.Count > i)
+                {
+                    timeList[i] = gameData.timeList[i];
+                }
+            }
         }
         else
         {

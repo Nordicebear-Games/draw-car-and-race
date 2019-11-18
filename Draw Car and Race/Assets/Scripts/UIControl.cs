@@ -53,18 +53,7 @@ public class UIControl : MonoBehaviour
 
     private void bestTime()
     {
-        GameData gameData = SaveSystem.loadGameData();
-        if (gameData != null)
-        {
-            try
-            {
-                bestTimeText.text = "Best: " + gameData.timeList[findLvlIndex()].ToString("F2");
-            }
-            catch (System.ArgumentOutOfRangeException)
-            {
-                bestTimeText.text = "Best: " + 0f.ToString("F2");
-            }
-        }
+        bestTimeText.text = "Best: " + GameControl.gameManager.timeList[findLvlIndex()].ToString("F2");
     }
 
     private int findLvlIndex() //find level index according to level name

@@ -11,9 +11,9 @@ public class LevelControl : MonoBehaviour
         lvlUnlocked();
     }
 
-    public void choosenLevel(string lvl)
+    public void choosenLevel(string lvlName)
     {
-        SceneManager.LoadScene(lvl);
+        TransitionControl.transitionManager.loadScene(lvlName);
     }
 
     private void lvlUnlocked()

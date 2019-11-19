@@ -71,18 +71,19 @@ public class UIControl : MonoBehaviour
 
     public void restartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        TransitionControl.transitionManager.loadScene(SceneManager.GetActiveScene().name);
         stopWatch.stopWatchState("reset");
     }
 
     public void nextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        TransitionControl.transitionManager.loadScene("Level " + (findLvlIndex() + 1).ToString());
     }
 
     public void lvlScreen()
     {
-        SceneManager.LoadScene("LevelScreen");
+        //SceneManager.LoadScene("LevelScreen");
+        TransitionControl.transitionManager.loadScene("LevelScreen");
     }
 
     public void levelCompleted()

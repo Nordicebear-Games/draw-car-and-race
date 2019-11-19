@@ -326,6 +326,75 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 544688810}
+--- !u!1001 &1142324245
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1127660284834710445, guid: 6ebeeccaf917d604db9d18685cc25a41,
+        type: 3}
+      propertyPath: m_Name
+      value: TransitionControl
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127660284834710447, guid: 6ebeeccaf917d604db9d18685cc25a41,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127660284834710447, guid: 6ebeeccaf917d604db9d18685cc25a41,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127660284834710447, guid: 6ebeeccaf917d604db9d18685cc25a41,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127660284834710447, guid: 6ebeeccaf917d604db9d18685cc25a41,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127660284834710447, guid: 6ebeeccaf917d604db9d18685cc25a41,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127660284834710447, guid: 6ebeeccaf917d604db9d18685cc25a41,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127660284834710447, guid: 6ebeeccaf917d604db9d18685cc25a41,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127660284834710447, guid: 6ebeeccaf917d604db9d18685cc25a41,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127660284834710447, guid: 6ebeeccaf917d604db9d18685cc25a41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127660284834710447, guid: 6ebeeccaf917d604db9d18685cc25a41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127660284834710447, guid: 6ebeeccaf917d604db9d18685cc25a41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ebeeccaf917d604db9d18685cc25a41, type: 3}
 --- !u!1001 &1219077318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -554,6 +623,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: StopWatch
       objectReference: {fileID: 0}
+    - target: {fileID: 1221720615462261142, guid: 019e47ab41cf68344b8c5c2fb66cf88b,
+        type: 3}
+      propertyPath: textBox
+      value: 
+      objectReference: {fileID: 611866771}
+    - target: {fileID: 1221720615462261142, guid: 019e47ab41cf68344b8c5c2fb66cf88b,
+        type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 611866771}
     - target: {fileID: 1221720615462261141, guid: 019e47ab41cf68344b8c5c2fb66cf88b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -609,16 +688,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1221720615462261142, guid: 019e47ab41cf68344b8c5c2fb66cf88b,
-        type: 3}
-      propertyPath: textBox
-      value: 
-      objectReference: {fileID: 611866771}
-    - target: {fileID: 1221720615462261142, guid: 019e47ab41cf68344b8c5c2fb66cf88b,
-        type: 3}
-      propertyPath: timeText
-      value: 
-      objectReference: {fileID: 611866771}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 019e47ab41cf68344b8c5c2fb66cf88b, type: 3}
 --- !u!1001 &4044886646783386166

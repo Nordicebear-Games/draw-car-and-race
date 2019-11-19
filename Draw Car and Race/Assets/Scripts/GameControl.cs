@@ -28,7 +28,12 @@ public class GameControl : MonoBehaviour
         //SaveSystem.deleteDatas();
         loadGameData();
 
- 
+        loadReachedLvl();
+
+    }
+
+    private void loadReachedLvl()
+    {
         if (currentLvl <= numberOfLevel)
         {
             SceneManager.LoadScene("Level " + currentLvl);
@@ -37,7 +42,6 @@ public class GameControl : MonoBehaviour
         {
             SceneManager.LoadScene("Level " + (currentLvl - 1));
         }
-        
     }
 
     public void reachedToNextLvl(int lvl, float newTime)

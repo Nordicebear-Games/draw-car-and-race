@@ -1,6 +1,6 @@
 # Draw Car and Race
 
-A game which I developed in 2 days for a job application
+A mini game which I developed for a job application.
 
 ![dcar](dcar1.png)
 

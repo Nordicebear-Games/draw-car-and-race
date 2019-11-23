@@ -40,5 +40,9 @@ public class StopWatch : MonoBehaviour
         {
             timerActive = false;
         }
+        else if (state == "increase")
+        {
+            timeStart += 1f;
+        }
     }
 }

@@ -11,7 +11,7 @@ public class Obstacle : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rotateObstacle();
+        //rotateObstacle();
     }
 
     private void rotateObstacle()

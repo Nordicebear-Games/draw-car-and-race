@@ -19,7 +19,7 @@ public class UIControl : MonoBehaviour
     private int lvlIndex;
 
     //public bool lastLvlControl = false;
-    public bool drawCarControl = true;
+    public bool drawControl = true;
 
     public static UIControl UIManager { get; private set; }
 
@@ -37,7 +37,7 @@ public class UIControl : MonoBehaviour
 
     private void Start()
     {
-        drawCarControl = true;
+        drawControl = true;
         bestTime();
         currentLevelText.GetComponent<Text>().text = SceneManager.GetActiveScene().name;
     }
@@ -105,7 +105,7 @@ public class UIControl : MonoBehaviour
             levelsButton.SetActive(true);
         }
 
-        drawCarControl = false;
+        drawControl = false;
         GameControl.gameManager.reachedToNextLvl(findLvlIndex(), stopWatch.timeStart);
         bestTime();
         stopWatch.stopWatchState("stop");

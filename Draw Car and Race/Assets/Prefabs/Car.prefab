@@ -49,6 +49,8 @@ MonoBehaviour:
     type: 3}
   wheelPrefab: {fileID: 3268782976521903455, guid: 2a110bf074b10114ab5d5494b4e741ea,
     type: 3}
+  obstacle: {fileID: 2978590393634437365, guid: 875889567a49b4f40b4e744ca4d88612,
+    type: 3}
   currentLine: {fileID: 0}
   lineRenderer: {fileID: 0}
   edgeCollider: {fileID: 0}

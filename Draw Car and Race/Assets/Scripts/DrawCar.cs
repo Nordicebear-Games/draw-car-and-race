@@ -8,9 +8,13 @@ public class DrawCar : MonoBehaviour
     [Range(0f, 100f)]
     public float carSpeed = 20f;
 
+    //[Header("Camera")]
+    //public Camera cam;
+
     [Header("Prefabs")]
     public GameObject linePrefab;
     public GameObject wheelPrefab;
+    public GameObject obstacle;
 
     [Header("Line")]
     public GameObject currentLine;
@@ -23,10 +27,12 @@ public class DrawCar : MonoBehaviour
     private GameObject wheel;
     private Vector3 wheelPos;
     private bool moveControl = false;
+    private Camera cam;
 
     private void Start()
     {
         rb2D = gameObject.GetComponent<Rigidbody2D>();
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     private void Update()
@@ -41,7 +47,7 @@ public class DrawCar : MonoBehaviour
 
     private void userInput()
     {
-        if (UIControl.UIManager.drawCarControl)
+        if (UIControl.UIManager.drawControl && transform.childCount == 0) //draw car
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -59,17 +65,26 @@ public class DrawCar : MonoBehaviour
 
             if (Input.GetMouseButtonUp(0))
             {
-                if (transform.childCount > 0) //if there is already a car
-                {
-                    foreach (Transform child in transform)
-                    {
-                        wheels.Clear();
-                        Destroy(child.gameObject);
-                    }
-                }
+                //if (transform.childCount > 0) //if there is already a car
+                //{
+                //    foreach (Transform child in transform)
+                //    {
+                //        wheels.Clear();
+                //        Destroy(child.gameObject);
+                //    }
+                //}
                 createCar();
 
                 UIControl.UIManager.raceStarted();
+            }
+        }
+        else if(UIControl.UIManager.drawControl) //draw path
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Vector3 pos = cam.ScreenToWorldPoint(Input.mousePosition + new Vector3(0f, 0f, 5f));
+                Instantiate(obstacle, pos, Quaternion.identity);
+                UIControl.UIManager.stopWatch.stopWatchState("increase");
             }
         }
     }

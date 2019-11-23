@@ -151,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLvl: 0
   timeList: []
-  numberOfLevel: 10
+  numberOfLevel: 6
 --- !u!4 &625030517
 Transform:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class Finish : MonoBehaviour
     {
         if (collision.transform.tag == "carTag")
         {
-            UIControl.UIManager.levelCompleted();
+            UIControl.UIManager.LevelCompleted();
         }
     }
 }

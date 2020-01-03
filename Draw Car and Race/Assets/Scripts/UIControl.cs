@@ -16,10 +16,9 @@ public class UIControl : MonoBehaviour
     public StopWatch stopWatch;
     public Text bestTimeText;
 
-    private int lvlIndex;
-
-    //public bool lastLvlControl = false;
     public bool drawControl = true;
+
+    private int lvlIndex;
 
     public static UIControl UIManager { get; private set; }
 
@@ -38,25 +37,25 @@ public class UIControl : MonoBehaviour
     private void Start()
     {
         drawControl = true;
-        bestTime();
+        BestTime();
         currentLevelText.GetComponent<Text>().text = SceneManager.GetActiveScene().name;
     }
 
-    public void raceStarted()
+    public void RaceStarted()
     {
         currentLevelText.SetActive(false);
         DrawCarAndRace.SetActive(false);
         levelsButton.SetActive(false);
         restartButton.SetActive(true);
-        stopWatch.stopWatchState("start");
+        stopWatch.StopWatchState("start");
     }
 
-    private void bestTime()
+    private void BestTime()
     {
-        bestTimeText.text = "Best: " + GameControl.gameManager.timeList[findLvlIndex() - 1].ToString("F2");
+        bestTimeText.text = "Best: " + GameControl.gameManager.timeList[FindLvlIndex() - 1].ToString("F2");
     }
 
-    private int findLvlIndex() //find level index according to level name
+    private int FindLvlIndex() //find level index according to level name
     {
         string lvlName = SceneManager.GetActiveScene().name;
         for (int i = 1; i <= GameControl.gameManager.numberOfLevel; i++)
@@ -69,24 +68,24 @@ public class UIControl : MonoBehaviour
         return lvlIndex;
     }
 
-    public void restartGame()
+    public void RestartGame()
     {
-        TransitionControl.transitionManager.loadScene(SceneManager.GetActiveScene().name);
-        stopWatch.stopWatchState("reset");
+        TransitionControl.transitionManager.LoadScene(SceneManager.GetActiveScene().name);
+        stopWatch.StopWatchState("reset");
     }
 
-    public void nextLevel()
+    public void NextLevel()
     {
-        TransitionControl.transitionManager.loadScene("Level " + (findLvlIndex() + 1).ToString());
+        TransitionControl.transitionManager.LoadScene("Level " + (FindLvlIndex() + 1).ToString());
     }
 
-    public void lvlScreen()
+    public void LvlScreen()
     {
         //SceneManager.LoadScene("LevelScreen");
-        TransitionControl.transitionManager.loadScene("LevelScreen");
+        TransitionControl.transitionManager.LoadScene("LevelScreen");
     }
 
-    public void levelCompleted()
+    public void LevelCompleted()
     {
         if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings)
         {
@@ -106,8 +105,8 @@ public class UIControl : MonoBehaviour
         }
 
         drawControl = false;
-        GameControl.gameManager.reachedToNextLvl(findLvlIndex(), stopWatch.timeStart);
-        bestTime();
-        stopWatch.stopWatchState("stop");
+        GameControl.gameManager.ReachedToNextLvl(FindLvlIndex(), stopWatch.timeStart);
+        BestTime();
+        stopWatch.StopWatchState("stop");
     }
 }

@@ -358,7 +358,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4044886646391817926}
-        m_MethodName: restartGame
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -515,8 +515,7 @@ MonoBehaviour:
   levelsButton: {fileID: 5833767009534600950}
   stopWatch: {fileID: 0}
   bestTimeText: {fileID: 1329917572}
-  lastLvlControl: 0
-  drawCarControl: 1
+  drawControl: 1
 --- !u!223 &4044886646391817944
 Canvas:
   m_ObjectHideFlags: 0
@@ -697,7 +696,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4044886646391817926}
-        m_MethodName: nextLevel
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -829,7 +828,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4044886646391817926}
-        m_MethodName: lvlScreen
+        m_MethodName: LvlScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

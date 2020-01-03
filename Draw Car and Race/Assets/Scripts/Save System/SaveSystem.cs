@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public static class SaveSystem
 {
     #region Game Data
-    public static void saveGameData(GameControl gameControl)
+    public static void SaveGameData(GameControl gameControl)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Path.Combine(Application.persistentDataPath, "game.fun");
@@ -17,7 +17,7 @@ public static class SaveSystem
         stream.Close();
     }
 
-    public static GameData loadGameData()
+    public static GameData LoadGameData()
     {
         string path = Path.Combine(Application.persistentDataPath, "game.fun");
 
@@ -38,7 +38,7 @@ public static class SaveSystem
     }
     #endregion
 
-    public static void deleteDatas()
+    public static void DeleteDatas()
     {
         File.Delete(Application.persistentDataPath + "/game.fun");
     }

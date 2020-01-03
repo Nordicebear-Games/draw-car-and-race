@@ -8,10 +8,10 @@ public class CameraFollow : MonoBehaviour
 
     private void Start()
     {
-        calculateOffset();
+        CalculateOffset();
     }
 
-    private void calculateOffset()
+    private void CalculateOffset()
     {
         //Calculate and store the offset value by getting the distance between the player's position and camera's position.
         offset = transform.position - car.transform.position;

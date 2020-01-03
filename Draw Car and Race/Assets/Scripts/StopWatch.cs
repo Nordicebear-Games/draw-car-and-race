@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class StopWatch : MonoBehaviour
 {
     public Text timeText;
-
     public float timeStart = 0.00f;
+
     private bool timerActive = false;
 
     private void Start()
@@ -24,7 +22,7 @@ public class StopWatch : MonoBehaviour
         }
     }
 
-    public void stopWatchState(string state)
+    public void StopWatchState(string state)
     {
         if (state == "reset")
         {

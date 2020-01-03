@@ -1,8 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class TransitionControl : MonoBehaviour
 {
@@ -24,12 +22,12 @@ public class TransitionControl : MonoBehaviour
         }
     }
 
-    public void loadScene(string sceneName)
+    public void LoadScene(string sceneName)
     {
-        StartCoroutine(transitionBetweenScenes(sceneName));
+        StartCoroutine(TransitionBetweenScenes(sceneName));
     }
 
-    private IEnumerator transitionBetweenScenes(string sceneName)
+    private IEnumerator TransitionBetweenScenes(string sceneName)
     {
         transitionAnim.SetTrigger("transition");
         yield return new WaitUntil(() => transitionPanel.transform.localScale.x == 2);

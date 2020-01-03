@@ -363,7 +363,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 134261026}
-        m_MethodName: choosenLevel
+        m_MethodName: ChoosenLevel
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1152,7 +1152,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 134261026}
-        m_MethodName: choosenLevel
+        m_MethodName: ChoosenLevel
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1445,7 +1445,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 134261026}
-        m_MethodName: choosenLevel
+        m_MethodName: ChoosenLevel
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1958,7 +1958,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 134261026}
-        m_MethodName: choosenLevel
+        m_MethodName: ChoosenLevel
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2417,7 +2417,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 134261026}
-        m_MethodName: choosenLevel
+        m_MethodName: ChoosenLevel
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2781,7 +2781,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 134261026}
-        m_MethodName: choosenLevel
+        m_MethodName: ChoosenLevel
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3157,7 +3157,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 134261026}
-        m_MethodName: choosenLevel
+        m_MethodName: ChoosenLevel
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3495,7 +3495,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 134261026}
-        m_MethodName: choosenLevel
+        m_MethodName: ChoosenLevel
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3784,7 +3784,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 134261026}
-        m_MethodName: choosenLevel
+        m_MethodName: ChoosenLevel
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4276,7 +4276,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 134261026}
-        m_MethodName: choosenLevel
+        m_MethodName: ChoosenLevel
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

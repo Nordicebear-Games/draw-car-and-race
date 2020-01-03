@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,13 +25,13 @@ public class GameControl : MonoBehaviour
     private void Start()
     {
         //SaveSystem.deleteDatas();
-        loadGameData();
+        LoadGameData();
 
-        loadReachedLvl();
+        LoadReachedLvl();
 
     }
 
-    private void loadReachedLvl()
+    private void LoadReachedLvl()
     {
         if (currentLvl <= numberOfLevel)
         {
@@ -44,7 +43,7 @@ public class GameControl : MonoBehaviour
         }
     }
 
-    public void reachedToNextLvl(int lvl, float newTime)
+    public void ReachedToNextLvl(int lvl, float newTime)
     {
         if (lvl == currentLvl)
         {
@@ -56,18 +55,18 @@ public class GameControl : MonoBehaviour
             timeList[lvl - 1] = Mathf.Round(newTime * 100f) / 100f;
         }
 
-        saveGameData();
+        SaveGameData();
     }
 
     #region Save and Load System
-    public void saveGameData()
+    public void SaveGameData()
     {
-        SaveSystem.saveGameData(this);
+        SaveSystem.SaveGameData(this);
     }
 
-    public void loadGameData()
+    public void LoadGameData()
     {
-        GameData gameData = SaveSystem.loadGameData();
+        GameData gameData = SaveSystem.LoadGameData();
 
         if (gameData != null)
         {

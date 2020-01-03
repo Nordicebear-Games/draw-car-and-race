@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class DrawCar : MonoBehaviour
@@ -7,9 +6,6 @@ public class DrawCar : MonoBehaviour
     [Header("Car")]
     [Range(0f, 100f)]
     public float carSpeed = 20f;
-
-    //[Header("Camera")]
-    //public Camera cam;
 
     [Header("Prefabs")]
     public GameObject linePrefab;
@@ -26,8 +22,9 @@ public class DrawCar : MonoBehaviour
     private List<GameObject> wheels = new List<GameObject>();
     private GameObject wheel;
     private Vector3 wheelPos;
-    private bool moveControl = false;
     private Camera cam;
+
+    private bool moveControl = false;
 
     private void Start()
     {
@@ -37,15 +34,15 @@ public class DrawCar : MonoBehaviour
 
     private void Update()
     {
-        userInput();
+        UserInput();
     }
 
     private void FixedUpdate()
     {
-        moveCar();
+        MoveCar();
     }
 
-    private void userInput()
+    private void UserInput()
     {
         if (UIControl.UIManager.drawControl && transform.childCount == 0) //draw car
         {
@@ -73,9 +70,9 @@ public class DrawCar : MonoBehaviour
                 //        Destroy(child.gameObject);
                 //    }
                 //}
-                createCar();
+                CreateCar();
 
-                UIControl.UIManager.raceStarted();
+                UIControl.UIManager.RaceStarted();
             }
         }
         else if(UIControl.UIManager.drawControl) //draw path
@@ -84,7 +81,7 @@ public class DrawCar : MonoBehaviour
             {
                 Vector3 pos = cam.ScreenToWorldPoint(Input.mousePosition + new Vector3(0f, 0f, 5f));
                 Instantiate(obstacle, pos, Quaternion.identity);
-                UIControl.UIManager.stopWatch.stopWatchState("increase");
+                UIControl.UIManager.stopWatch.StopWatchState("increase");
             }
         }
     }
@@ -110,14 +107,14 @@ public class DrawCar : MonoBehaviour
         edgeCollider.points = fingerPositions.ToArray();
     }
 
-    private void createCar()
+    private void CreateCar()
     {
-        createWheel();
+        CreateWheel();
         (currentLine as GameObject).transform.parent = gameObject.transform;
         moveControl = true;
     }
 
-    private void createWheel()
+    private void CreateWheel()
     {
         for (int i = 0; i < 2; i++)
         {
@@ -135,17 +132,17 @@ public class DrawCar : MonoBehaviour
         }
     }
 
-    private void moveCar()
+    private void MoveCar()
     {
         if (moveControl)
         {
             rb2D.bodyType = RigidbodyType2D.Dynamic;
             rb2D.AddForce(transform.right * carSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
-            rotateWheel();
+            RotateWheel();
         }
     }
 
-    private void rotateWheel()
+    private void RotateWheel()
     {
         for (int i = 0; i < wheels.Count; i++)
         {

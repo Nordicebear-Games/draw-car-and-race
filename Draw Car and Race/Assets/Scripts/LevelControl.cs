@@ -1,6 +1,5 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelControl : MonoBehaviour
 {
@@ -8,17 +7,17 @@ public class LevelControl : MonoBehaviour
 
     private void Start()
     {
-        lvlUnlocked();
+        LvlUnlocked();
     }
 
-    public void choosenLevel(string lvlName)
+    public void ChoosenLevel(string lvlName)
     {
-        TransitionControl.transitionManager.loadScene(lvlName);
+        TransitionControl.transitionManager.LoadScene(lvlName);
     }
 
-    private void lvlUnlocked()
+    private void LvlUnlocked()
     {
-        GameData gameData = SaveSystem.loadGameData();
+        GameData gameData = SaveSystem.LoadGameData();
         if (gameData != null)
         {
             //Debug.Log(gameData.currentLvl);

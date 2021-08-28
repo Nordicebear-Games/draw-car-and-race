@@ -6,4 +6,4 @@ A mini game which I developed for a job application.
 
 ## LINKS
 
-- [Itch.io](https://nordicebear.itch.io/dcar)
+- [Itch.io](https://avodhel.itch.io/dcar)
